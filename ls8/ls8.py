@@ -12,12 +12,13 @@ program = []
 for line in file:
     line = line.split(' ')[0]
     line = line.split('#')[0]
+    if len(line) >= 8:
+        program.append(int(line, 2))
+        
+file.close()
 
 cpu = CPU()
 
-if len(sys.argv) != 2:
-    print("ERROR: must have file name")
-    sys.exit(1)
 
-cpu.load(sys.argv[1])
+cpu.load(program)
 cpu.run()

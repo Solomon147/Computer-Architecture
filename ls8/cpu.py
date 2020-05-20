@@ -212,4 +212,9 @@ class CPU:
         self.PUSH(self.pc + 2)
         self.pc = self.reg[self.operand_a]
         
-#    
+    def RET(self):
+        """
+        Returns from subroutine.
+        Pop the value from the top of the stack and store it in the PC
+        """
+        self.pc = self.POP(register=False)
